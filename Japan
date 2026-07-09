@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>西日本自駕 ｜ 2026.07.13–07.21</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#eef1ec;--card:#fbfbf7;--ink:#1b2530;--sub:#5d6670;--line:#d8dcd2;
+    --pine:#26594a;--pine2:#347a63;--verm:#cf4a33;--gold:#b7871f;--indigo:#1f3a5f;
+    --serif:"Noto Serif TC","Songti TC","Yu Mincho",serif;
+    --sans:"Noto Sans TC","PingFang TC","Hiragino Sans","Microsoft JhengHei",sans-serif;
+    --mono:"SF Mono",ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(circle at 1px 1px,rgba(38,89,74,.045) 1px,transparent 0);
+    background-size:22px 22px;}
+  .wrap{max-width:640px;margin:0 auto}
+
+  header{background:var(--pine);color:#f7faf6;padding:26px 22px 16px;position:relative;overflow:hidden}
+  header::after{content:"西";position:absolute;right:-12px;top:-26px;font-family:var(--serif);
+    font-size:150px;font-weight:900;color:rgba(255,255,255,.07);line-height:1}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:#a7ccbd;text-transform:uppercase}
+  h1{font-family:var(--serif);font-weight:900;font-size:42px;letter-spacing:.03em;margin:6px 0 4px;line-height:1.05}
+  h1 .x{color:#f2c65a;font-weight:500}
+  .trip-meta{font-size:13px;color:#c3ddd2;letter-spacing:.03em}
+
+  nav{position:sticky;top:0;z-index:20;background:rgba(238,241,236,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);display:flex;gap:6px;padding:9px 12px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  nav::-webkit-scrollbar{display:none}
+  nav a{flex:0 0 auto;text-decoration:none;color:var(--pine);font-size:13px;font-weight:700;
+    padding:6px 12px;border-radius:20px;border:1px solid var(--line);background:var(--card);white-space:nowrap;transition:.18s}
+  nav a b{font-family:var(--mono);font-size:11px;opacity:.6;margin-left:4px;font-weight:400}
+  nav a.on{background:var(--pine);color:#fff;border-color:var(--pine)}
+
+  .keys{margin:16px 14px 0;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .keys h3{font-family:var(--serif);font-size:16px;color:var(--pine);margin-bottom:8px}
+  .keys ul{list-style:none;display:grid;gap:9px}
+  .keys li{font-size:13.5px;line-height:1.5;display:flex;gap:9px}
+  .keys li .ic{flex:0 0 auto;font-size:15px}
+  .keys li b{color:var(--verm)}
+  .keys a{color:var(--indigo);font-weight:700}
+
+  .wcard{margin:12px 14px 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+  .wcard .wt{display:flex;align-items:baseline;gap:8px;margin-bottom:4px}
+  .wcard .wt b{font-family:var(--serif);font-size:16px;color:var(--pine)}
+  .wcard .wt span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--sub);text-transform:uppercase}
+  .wcard p{font-size:13px;color:#41474e;line-height:1.55}
+  .wcard .wlinks{margin-top:11px;display:flex;flex-wrap:wrap;gap:8px}
+  .wcard .wlinks a{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;font-weight:700;
+    text-decoration:none;color:#fff;background:var(--pine);padding:7px 13px;border-radius:9px}
+  .wcard .wlinks a:active{background:#1c4437}
+
+  .actbar{margin:12px 14px 0;background:var(--pine);border-radius:12px;padding:12px 15px;display:flex;align-items:center;gap:12px}
+  .actbar .txt{flex:1;color:#dcece5;font-size:12.5px;line-height:1.4}
+  .actbar .txt b{color:#fff;font-family:var(--serif)}
+  .actbar a{flex:0 0 auto;text-decoration:none;background:var(--verm);color:#fff;font-weight:700;
+    font-size:13px;padding:9px 14px;border-radius:9px;white-space:nowrap}
+  .actbar a:active{background:#b83f2b}
+
+  section{padding:8px 14px 4px}
+  .day{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:14px 0;overflow:hidden;box-shadow:0 1px 0 rgba(27,37,48,.03)}
+  .day-head{padding:16px 18px 14px;border-bottom:1px dashed var(--line);display:flex;align-items:baseline;gap:12px;position:relative}
+  .day-head .jp{font-family:var(--serif);font-weight:900;font-size:22px;color:var(--pine);white-space:nowrap}
+  .day-head .info{flex:1;min-width:0}
+  .day-head .date{font-family:var(--mono);font-size:13px;color:var(--sub);letter-spacing:.03em}
+  .day-head .dow{color:var(--verm);font-weight:700}
+  .day-head .theme{font-family:var(--serif);font-weight:700;font-size:17px;margin-top:2px}
+
+  ul.tl{list-style:none;padding:8px 18px 16px}
+  ul.tl li{position:relative;padding:12px 0 12px 26px;border-left:2px solid var(--line);margin-left:4px}
+  ul.tl li:last-child{border-left-color:transparent}
+  ul.tl li::before{content:"";position:absolute;left:-7px;top:16px;width:12px;height:12px;border-radius:50%;
+    background:var(--dot,#b9b3a5);border:2px solid var(--card)}
+  .time{font-family:var(--mono);font-size:12px;color:var(--pine2);font-weight:700;letter-spacing:.02em}
+  .title{font-size:15.5px;font-weight:700;margin:1px 0 2px;line-height:1.35}
+  .loc{font-size:12.5px;color:var(--sub)}
+  .loc::before{content:"◍ ";opacity:.5}
+  .note{font-size:13px;color:#41474e;margin-top:3px;line-height:1.5}
+  .tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;vertical-align:middle;margin-right:6px;letter-spacing:.04em}
+  .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:7px}
+  .maplink,.cal{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;text-decoration:none;padding:4px 10px;border-radius:8px;border:1px solid}
+  .maplink{color:var(--indigo);background:#e9eff6;border-color:#d3e0ee}
+  .cal{color:#8f4a12;background:#fbedd8;border-color:#efd6ac}
+
+  details.memo{margin-top:8px}
+  details.memo summary{list-style:none;cursor:pointer;font-size:11.5px;font-weight:600;color:var(--sub);
+    display:inline-flex;align-items:center;gap:5px;padding:3px 0;user-select:none}
+  details.memo summary::-webkit-details-marker{display:none}
+  details.memo summary::before{content:"✎";font-size:12px;opacity:.7}
+  details.memo.has summary::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--verm)}
+  details.memo textarea{width:100%;margin-top:6px;border:1px solid var(--line);border-radius:9px;background:#fffef9;
+    padding:9px 11px;font-family:var(--sans);font-size:13px;color:var(--ink);resize:vertical;min-height:52px;line-height:1.5}
+  details.memo textarea:focus{outline:none;border-color:var(--pine2)}
+  details.memo textarea::placeholder{color:#b0aa9c}
+
+  .block-h{display:flex;align-items:center;gap:10px;margin:30px 4px 4px}
+  .block-h .kj{font-family:var(--serif);font-weight:900;font-size:26px;color:var(--verm)}
+  .block-h .en{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--sub);text-transform:uppercase}
+  .block-h h2{font-family:var(--serif);font-size:20px;font-weight:700}
+
+  .stay-list{display:grid;gap:9px}
+  .stay-row{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 14px;display:flex;gap:12px;align-items:baseline}
+  .stay-row .sd{font-family:var(--mono);font-size:12px;color:var(--pine2);font-weight:700;flex:0 0 auto;white-space:nowrap}
+  .stay-row .sn{font-size:14px;font-weight:600}
+  .stay-row .sn small{display:block;color:var(--sub);font-size:12px;font-weight:400}
+
+  .food-city{margin-top:14px;font-family:var(--serif);font-weight:700;font-size:15px;color:var(--pine);
+    padding-left:2px;border-left:3px solid var(--gold);padding-left:9px}
+  .food-grid{display:grid;gap:8px;margin-top:8px}
+  .food-card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:10px 13px;font-size:14px;font-weight:600}
+
+  .t-traffic{background:#e3ecf5;color:#1f4a75} .d-traffic{--dot:#3b6ca3}
+  .t-food{background:#fbe4dc;color:#b8442c}   .d-food{--dot:#cf4a33}
+  .t-sight{background:#e0efe4;color:#2f7048}  .d-sight{--dot:#3f8a5c}
+  .t-shop{background:#efe1f1;color:#7d3f86}   .d-shop{--dot:#9a5aa3}
+  .t-stay{background:#e7e5df;color:#55524a}   .d-stay{--dot:#8a857a}
+
+  footer{text-align:center;color:var(--sub);font-size:12px;padding:34px 20px 40px;line-height:1.7}
+  footer .ln{width:32px;height:2px;background:var(--verm);margin:0 auto 14px}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">2026.07.13 – 07.21 ・ 9天8夜</div>
+    <h1>西日本<span class="x">自駕</span></h1>
+    <div class="trip-meta">關西 ・ 山陰 ・ 廣島 環遊（京都→天橋立→鳥取→松江→出雲→廣島→嚴島→大阪）</div>
+  </header>
+
+  <nav id="nav"></nav>
+
+  <div class="keys">
+    <h3>行程重點</h3>
+    <ul>
+      <li><span class="ic">🚗</span><div>自駕：<b>京都新幹線口</b>取車（豐田租車）→ <b>廣島新幹線口</b>還車</div></li>
+      <li><span class="ic">🎫</span><div>關西機場特快 <b>HARUKA</b> 車票需事先購買（¥2,990）</div></li>
+      <li><span class="ic">🚄</span><div>廣島→大阪 新幹線需預訂<b>可放大型行李</b>的座位 · <a href="https://www.klook.com/zh-TW/rails-32/1012-japan/search/?departure_date=2026-07-18" target="_blank" rel="noopener">Klook 訂票 ↗</a></div></li>
+      <li><span class="ic">✈️</span><div>Julia <b>7/20 07:55</b> 早班機——留意前一晚交通與行李打包</div></li>
+    </ul>
+  </div>
+
+  <div class="wcard">
+    <div class="wt"><b>七月天氣</b><span>氣候常態 · 非即時預報</span></div>
+    <p>京都・大阪・廣島高溫多濕（白天約 31–34°C）；山陰海岸（鳥取・松江・出雲）七月為梅雨尾聲，海邊可能陣雨、濕度高。晴天紫外線強，自駕日曬也強。<b>出發前逐城市查一次即時預報。</b></p>
+    <div class="wlinks">
+      <a href="https://www.google.com/search?q=%E5%A4%A7%E9%98%AA%20%E5%A4%A9%E6%B0%A3%E9%A0%90%E5%A0%B1" target="_blank" rel="noopener">🔎 大阪</a>
+      <a href="https://www.google.com/search?q=%E5%BB%A3%E5%B3%B6%20%E5%A4%A9%E6%B0%A3%E9%A0%90%E5%A0%B1" target="_blank" rel="noopener">🔎 廣島</a>
+      <a href="https://www.google.com/search?q=%E9%B3%A5%E5%8F%96%20%E5%A4%A9%E6%B0%A3%E9%A0%90%E5%A0%B1" target="_blank" rel="noopener">🔎 鳥取</a>
+      <a href="https://www.google.com/search?q=%E5%87%BA%E9%9B%B2%20%E5%A4%A9%E6%B0%A3%E9%A0%90%E5%A0%B1" target="_blank" rel="noopener">🔎 出雲</a>
+    </div>
+  </div>
+
+  <div class="actbar">
+    <div class="txt"><b>整趟行程一次匯入</b><br>下載 .ics，用 Google／Apple 行事曆開啟即可批次加入（時區已設 JST）。</div>
+    <a id="icsBtn" download="西日本自駕行程.ics">下載 .ics</a>
+  </div>
+
+  <section id="days"></section>
+
+  <section>
+    <div class="block-h"><span class="kj">宿</span><div><div class="en">Hotels</div><h2>住宿一覽</h2></div></div>
+    <div class="stay-list" id="stays"></div>
+  </section>
+
+  <section>
+    <div class="block-h"><span class="kj">食</span><div><div class="en">Eat List</div><h2>美食清單</h2></div></div>
+    <div id="food"></div>
+  </section>
+
+  <footer>
+    <div class="ln"></div>
+    西日本、山陰海岸へ。<br>気をつけていってらっしゃい 🚗<br>
+    <span style="opacity:.6">各項備註會記在此裝置的瀏覽器</span>
+  </footer>
+</div>
+
+<script>
+const days=[
+{id:'d1',date:'2026 / 7 / 13',dow:'(一) MON',theme:'抵達・大阪',items:[
+ {t:'18:15~22:00',c:'traffic',ti:'桃園機場 → 關西機場',lo:'第一航廈'},
+ {c:'traffic',ti:'關西機場 → 日根野',n:'JR 關西機場線（藍）¥460'},
+ {c:'stay',ti:'Check in ・ Osaka Kansai Airport Hotel'},
+]},
+{id:'d2',date:'2026 / 7 / 14',dow:'(二) TUE',theme:'京都 ＋ 嵐山',items:[
+ {t:'08:50',c:'traffic',ti:'日根野 → 京都車站',n:'JR HARUKA（藍）¥2,990 ・ 特快車票需先買'},
+ {t:'10:10',c:'traffic',ti:'京都車站 → 四條',lo:'京都市營 K 烏丸線（綠）¥220'},
+ {t:'10:30',c:'traffic',ti:'至飯店寄放行李',lo:'KOKO HOTEL',n:'6 號出口步行 5 分鐘至飯店'},
+ {c:'sight',ti:'京都市區',n:'清水寺、八坂神社、二年坂、Gotō Sports'},
+ {c:'sight',ti:'嵐山',n:'嵐山、御髮神社'},
+ {t:'19:00',c:'food',ti:'Wagyu Sukiyaki Hiroshige',lo:'Nishiki Market',n:'和牛壽喜燒'},
+ {t:'21:00',c:'stay',ti:'Check in ・ KOKO HOTEL 京都四條烏丸',lo:'KOKO HOTEL Kyoto Shijo Karasuma'},
+]},
+{id:'d3',date:'2026 / 7 / 15',dow:'(三) WED',theme:'天橋立 ＋ 伊根舟屋',items:[
+ {t:'08:00',c:'food',ti:'飯店早餐'},
+ {t:'09:00',c:'traffic',ti:'租車 ・ 豐田租車（京都新幹線口）',lo:'31-1 Higashikujo Kamitonodacho',n:'約開車 2 小時至天橋立'},
+ {t:'11:00-12:30',c:'sight',ti:'天橋立'},
+ {t:'12:30',c:'food',ti:'亀乃庵',n:'約開車 30 分至阿蘇の舟屋（溝尻の舟屋）'},
+ {t:'14:30~16:00',c:'sight',ti:'阿蘇の舟屋（溝尻の舟屋）'},
+ {t:'16:00~18:30',c:'traffic',ti:'京都 → 鳥取',n:'開車約 2.5 小時至鳥取'},
+ {t:'18:30',c:'stay',ti:'Check in ・ 東橫INN 鳥取車站北口',lo:'Toyoko Inn Tottori-eki Kita-guchi'},
+]},
+{id:'d4',date:'2026 / 7 / 16',dow:'(四) THU',theme:'鳥取 ＋ 松江城',items:[
+ {t:'08:00',c:'food',ti:'飯店早餐',n:'約開車 15 分至鳥取砂丘'},
+ {t:'09:00',c:'sight',ti:'鳥取砂丘'},
+ {t:'10:30~12:30',c:'traffic',ti:'鳥取 → 松江',n:'約開車 2 小時至松江城'},
+ {t:'12:30',c:'food',ti:'午餐（海產）',lo:'境港水產物地方市場',n:'或考慮至宍道湖附近吃手打蕎麥麵'},
+ {t:'13:00~14:30',c:'sight',ti:'松江城 二之丸跡'},
+ {t:'14:30~15:00',c:'sight',ti:'島根美術館',n:'避暑地點'},
+ {t:'17:30',c:'sight',ti:'宍道湖看日落',lo:'日落觀賞點 - Torupa'},
+ {t:'17:50~18:30',c:'traffic',ti:'松江 → 出雲',n:'約開車 40 分至出雲'},
+ {t:'18:30',c:'stay',ti:'Check in ・ Dormy Inn 出雲',lo:'天然溫泉 八雲之湯'},
+ {t:'19:00',c:'shop',ti:'逛 BINGOYA SUPERSHOP'},
+ {t:'20:00',c:'food',ti:'飯店免費宵夜'},
+]},
+{id:'d5',date:'2026 / 7 / 17',dow:'(五) FRI',theme:'出雲 ＋ 廣島',items:[
+ {t:'09:00',c:'stay',ti:'Check out ・ Dormy Inn 出雲',n:'約開車 20 分至出雲大社'},
+ {t:'9:30~10:30',c:'sight',ti:'出雲大社',n:'約開車 5 分至稻佐海濱'},
+ {t:'10:30~11:00',c:'sight',ti:'稻佐海濱'},
+ {t:'12:00~15:00',c:'traffic',ti:'出雲 → 廣島',n:'約開車 3 小時至廣島市區，路上自行覓食'},
+ {t:'15:00',c:'stay',ti:'Check in ・ b hotel Nikke',lo:'近本通商店街'},
+ {t:'15:30~17:00',c:'sight',ti:'廣島市區景點',n:'廣島城、原子彈爆炸圓頂屋、廣島美術館'},
+ {t:'17:00~19:00',c:'shop',ti:'廣島市區逛街',n:'本通站附近（loft、gu、uq、beams、3coins、wego）'},
+ {t:'19:30',c:'food',ti:'晚餐',n:'居酒屋、牛尾湯'},
+]},
+{id:'d6',date:'2026 / 7 / 18',dow:'(六) SAT',theme:'嚴島 ＋ 心齋橋',items:[
+ {t:'09:00',c:'stay',ti:'Check out ・ b hotel Nikke'},
+ {t:'9:00~10:30',c:'traffic',ti:'廣島 → 嚴島',n:'約開車 1.5 小時至嚴島'},
+ {t:'10:30',c:'sight',ti:'嚴島神社',n:'周圍很多商店街、神社可以逛逛'},
+ {t:'12:00',c:'food',ti:'午餐',n:'Rokumeikan（壽喜燒）、商店街隨便找'},
+ {t:'14:00~15:30',c:'traffic',ti:'嚴島 → 廣島',n:'約開車 1.5 小時回廣島'},
+ {t:'15:30~18:30',c:'sight',ti:'看想去哪裡晃晃',n:'或提早還車回大阪也可以'},
+ {t:'19:00',c:'traffic',ti:'還車 ・ 廣島新幹線口',lo:'Toyota Rent-a-car Hiroshima Shinkansen Gate'},
+ {t:'19:20-20:46',c:'traffic',ti:'廣島 → 大阪（新幹線）',n:'需預訂可攜帶大型行李的座位',u:'https://www.klook.com/zh-TW/rails-32/1012-japan/search/?departure_date=2026-07-18',ul:'Klook 訂票'},
+ {t:'21:00',c:'stay',ti:'Check in ・ Apartment hotel 11 Kuromon IV'},
+ {t:'21:30',c:'food',ti:'晚餐',n:'大阪八百屋日式定食'},
+]},
+{id:'d7',date:'2026 / 7 / 19',dow:'(日) SUN',theme:'梅田 ＋ 中崎町',items:[
+ {t:'10:30~13:00',c:'shop',ti:'梅田',n:'loft、gu、uq、beams、3coins、trideep、無印、morphee、扭蛋店'},
+ {t:'13:00~14:30',c:'food',ti:'午餐',n:'炭土鍋 喜色、中崎町御飯糰'},
+ {t:'14:30~16:30',c:'sight',ti:'中崎町',n:'咖啡廳、古著店'},
+ {t:'17:00~21:00',c:'shop',ti:'心齋橋 ＋ 難波',n:'shiro、sportdeep、oakley、alpen、niko and'},
+ {t:'21:00',c:'shop',ti:'唐吉軻德（道頓堀）',n:'24 小時營業，可以最後再逛'},
+ {c:'stay',ti:'住 ・ Apartment hotel 11 Kuromon IV'},
+]},
+{id:'d8',date:'2026 / 7 / 20',dow:'(一) MON',theme:'難波 ＋ 八坂神社（Julia 07:55 飛機）',items:[
+ {c:'sight',ti:'難波八坂神社'},
+ {c:'stay',ti:'住 ・ Apartment hotel 11 Kuromon IV'},
+]},
+{id:'d9',date:'2026 / 7 / 21',dow:'(二) TUE',theme:'返程・大阪',items:[
+ {t:'08:30',c:'stay',ti:'Check out'},
+ {t:'9:00~10:00',c:'traffic',ti:'大阪 → 關西機場',n:'JR 南海本線 南海難波 → 泉佐野 → 關西機場 ¥970'},
+ {t:'12:00~14:15',c:'traffic',ti:'關西機場 → 桃園機場'},
+]},
+];
+const CN={traffic:'交通',food:'餐飲',sight:'觀光',shop:'購物',stay:'住宿'};
+
+const stays=[
+ ['7/13','Osaka Kansai Airport Hotel','關西機場'],
+ ['7/14','KOKO HOTEL 京都四條烏丸','KOKO HOTEL Kyoto Shijo Karasuma'],
+ ['7/15','東橫INN 鳥取車站北口','Toyoko Inn Tottori-eki Kita-guchi'],
+ ['7/16','Dormy Inn 出雲','天然溫泉 八雲之湯'],
+ ['7/17','b hotel Nikke','廣島 · 近本通商店街'],
+ ['7/18–20','Apartment hotel 11 Kuromon IV','大阪 · 黑門'],
+];
+const foodGroups=[
+ {city:'京都',items:['Mochi mochi','Starbucks – Kyoto Nineizaka Yasaka Chaya','I\u2019m donut？ 京都']},
+ {city:'大阪',items:['MooKEN','ARCHI coffee and wine','neel nakazakicho 中崎町咖啡廳','Onigiri Gorichan 中崎町御飯糰','炭と土鍋ごはん 喜色 中崎町土鍋','ICHIRAN Umeda Shibata 梅田一蘭']},
+];
+
+const ymdOf=d=>{const m=d.date.match(/(\d{4})\s*\/\s*(\d{1,2})\s*\/\s*(\d{1,2})/);return m[1]+m[2].padStart(2,'0')+m[3].padStart(2,'0');};
+function parseTimes(ymd,t){
+  if(!t)return null;
+  const parts=t.replace(/[–—~〜]/g,'-').split('-').map(s=>s.trim()).filter(Boolean);
+  const toDT=hm=>{const m=hm.match(/(\d{1,2}):(\d{2})/);return m?ymd+'T'+m[1].padStart(2,'0')+m[2]+'00':null;};
+  const s=toDT(parts[0]); if(!s)return null;
+  let e=parts[1]?toDT(parts[1]):null;
+  if(!e){const mins=+s.slice(9,11)*60+ +s.slice(11,13)+90;
+    if(mins>=1439){e=ymd+'T235900';}
+    else e=ymd+'T'+String(Math.floor(mins/60)).padStart(2,'0')+String(mins%60).padStart(2,'0')+'00';}
+  return {s,e};
+}
+function gcalUrl(ymd,i){
+  const dt=parseTimes(ymd,i.t); if(!dt)return '';
+  let det=i.n||''; if(i.u)det+=(det?'\n':'')+i.u;
+  return 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+   +'&text='+encodeURIComponent(i.ti)+'&dates='+dt.s+'/'+dt.e+'&ctz=Asia/Tokyo'
+   +'&details='+encodeURIComponent(det)+'&location='+encodeURIComponent(i.lo||i.ti);
+}
+const esc=s=>(s||'').replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\n/g,'\\n');
+function buildICS(){
+  const L=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//nishi-nihon//trip//ZH','CALSCALE:GREGORIAN','METHOD:PUBLISH',
+    'BEGIN:VTIMEZONE','TZID:Asia/Tokyo','BEGIN:STANDARD','DTSTART:19700101T000000',
+    'TZOFFSETFROM:+0900','TZOFFSETTO:+0900','TZNAME:JST','END:STANDARD','END:VTIMEZONE'];
+  let uid=0;
+  days.forEach(d=>{const ymd=ymdOf(d);d.items.forEach(i=>{
+    const dt=parseTimes(ymd,i.t); if(!dt)return;
+    let det=i.n||''; if(i.u)det+=(det?'\n':'')+i.u;
+    L.push('BEGIN:VEVENT','UID:'+(++uid)+'-nishi-nihon','DTSTAMP:20260701T000000Z',
+      'DTSTART;TZID=Asia/Tokyo:'+dt.s,'DTEND;TZID=Asia/Tokyo:'+dt.e,
+      'SUMMARY:'+esc(i.ti),'LOCATION:'+esc(i.lo||''),'DESCRIPTION:'+esc(det),'END:VEVENT');
+  });});
+  L.push('END:VCALENDAR');
+  return L.join('\r\n');
+}
+
+const MEMO=(()=>{try{return JSON.parse(localStorage.getItem('japanMemo')||'{}')}catch(e){return{}}})();
+const saveMemo=()=>{try{localStorage.setItem('japanMemo',JSON.stringify(MEMO))}catch(e){}};
+
+// nav
+document.getElementById('nav').innerHTML=days.map((d,n)=>{
+  const dd=d.date.match(/(\d{1,2})\s*\/\s*(\d{1,2})$/);const md=dd[1]+'/'+dd[2];
+  return `<a href="#${d.id}" data-day="${d.id}">Day ${n+1}<b>${md}</b></a>`;
+}).join('')+`<a href="#stays" data-day="stays">住宿</a><a href="#food" data-day="food">美食</a>`;
+
+const mapBtn=(u,l)=>u?`<a class="maplink" href="${u}" target="_blank" rel="noopener">${l||'Google 地圖'} ↗</a>`:'';
+document.getElementById('days').innerHTML=days.map(d=>{const ymd=ymdOf(d);return `
+ <div class="day" id="${d.id}">
+   <div class="day-head"><div class="jp">${d.id.toUpperCase().replace('D','Day ')}</div>
+     <div class="info"><div class="date">${d.date} <span class="dow">${d.dow}</span></div>
+       <div class="theme">${d.theme}</div></div></div>
+   <ul class="tl">
+     ${d.items.map((i,idx)=>{const g=gcalUrl(ymd,i);const key=d.id+'-'+idx;return `
+       <li class="d-${i.c||'stay'}">
+         ${i.t?`<div class="time">${i.t}</div>`:''}
+         <div class="title"><span class="tag t-${i.c||'stay'}">${CN[i.c]||'行程'}</span>${i.ti}</div>
+         ${i.lo?`<div class="loc">${i.lo}</div>`:''}
+         ${i.n?`<div class="note">${i.n}</div>`:''}
+         ${(i.u||g)?`<div class="links">${mapBtn(i.u,i.ul)}${g?`<a class="cal" href="${g}" target="_blank" rel="noopener">＋ 行事曆</a>`:''}</div>`:''}
+         <details class="memo"><summary>天氣 / 交通備註</summary><textarea data-key="${key}" placeholder="例：路況、取車手續、末班車、訂位號碼…"></textarea></details>
+       </li>`;}).join('')}
+   </ul>
+ </div>`;}).join('');
+
+document.querySelectorAll('.memo textarea').forEach(ta=>{
+  const k=ta.dataset.key;
+  if(MEMO[k]){ta.value=MEMO[k];const d=ta.closest('.memo');d.classList.add('has');d.open=true;}
+  ta.addEventListener('input',()=>{const d=ta.closest('.memo');
+    if(ta.value.trim()){MEMO[k]=ta.value;d.classList.add('has');}else{delete MEMO[k];d.classList.remove('has');}
+    saveMemo();});
+});
+
+try{const blob=new Blob([buildICS()],{type:'text/calendar;charset=utf-8'});
+  document.getElementById('icsBtn').href=URL.createObjectURL(blob);
+}catch(e){document.getElementById('icsBtn').textContent='.ics 不支援';}
+
+document.getElementById('stays').innerHTML=stays.map(s=>`
+ <div class="stay-row"><div class="sd">${s[0]}</div>
+   <div class="sn">${s[1]}<small>${s[2]}</small></div></div>`).join('');
+
+document.getElementById('food').innerHTML=foodGroups.map(g=>`
+ <div class="food-city">${g.city}</div>
+ <div class="food-grid">${g.items.map(n=>`<div class="food-card">${n}</div>`).join('')}</div>`).join('');
+
+const links=[...document.querySelectorAll('nav a')];
+const targets=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){
+  const id=en.target.id;links.forEach(a=>a.classList.toggle('on',a.dataset.day===id));}}),
+  {rootMargin:'-45% 0px -50% 0px'});
+targets.forEach(t=>io.observe(t));
+</script>
+</body>
+</html>
