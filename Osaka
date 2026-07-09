@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大阪 × 京都 ｜ 2026.07.09–07.13</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f2f0e8;--card:#fbfaf6;--ink:#1b2530;--sub:#5d6670;--line:#ddd8cc;
+    --indigo:#1f3a5f;--indigo2:#2d5680;--verm:#cf4a33;--gold:#b7871f;
+    --serif:"Noto Serif TC","Songti TC","Yu Mincho",serif;
+    --sans:"Noto Sans TC","PingFang TC","Hiragino Sans","Microsoft JhengHei",sans-serif;
+    --mono:"SF Mono",ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(circle at 1px 1px,rgba(31,58,95,.04) 1px,transparent 0);
+    background-size:22px 22px;}
+  .wrap{max-width:640px;margin:0 auto}
+
+  header{background:var(--indigo);color:#fbfaf6;padding:26px 22px 16px;position:relative;overflow:hidden}
+  header::after{content:"旅";position:absolute;right:-14px;top:-24px;font-family:var(--serif);
+    font-size:150px;font-weight:900;color:rgba(255,255,255,.06);line-height:1}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:#a9c2dd;text-transform:uppercase}
+  h1{font-family:var(--serif);font-weight:900;font-size:44px;letter-spacing:.02em;margin:6px 0 4px;line-height:1.05}
+  h1 .x{color:var(--verm);font-weight:500;padding:0 6px}
+  .trip-meta{font-size:13px;color:#c5d6e8;letter-spacing:.04em}
+
+  nav{position:sticky;top:0;z-index:20;background:rgba(242,240,232,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);display:flex;gap:6px;padding:9px 12px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  nav::-webkit-scrollbar{display:none}
+  nav a{flex:0 0 auto;text-decoration:none;color:var(--indigo);font-size:13px;font-weight:700;
+    padding:6px 13px;border-radius:20px;border:1px solid var(--line);background:var(--card);white-space:nowrap;transition:.18s}
+  nav a b{font-family:var(--mono);font-size:11px;opacity:.6;margin-left:4px;font-weight:400}
+  nav a.on{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+
+  .remind{margin:16px 14px 0;background:#fdf3dc;border:1px solid #ecd9a4;border-radius:12px;
+    padding:11px 14px;font-size:14px;color:#7a5c14;display:flex;gap:9px;align-items:center}
+  .remind .star{color:var(--verm);font-size:16px}
+  .remind b{color:#5c4409}
+
+  .wcard{margin:12px 14px 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 15px}
+  .wcard .wt{display:flex;align-items:baseline;gap:8px;margin-bottom:4px}
+  .wcard .wt b{font-family:var(--serif);font-size:16px;color:var(--indigo)}
+  .wcard .wt span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--sub);text-transform:uppercase}
+  .wcard p{font-size:13px;color:#41474e;line-height:1.55}
+  .wcard .tips{margin-top:7px;display:flex;flex-wrap:wrap;gap:6px}
+  .wcard .tips span{font-size:11.5px;background:#e9eff6;color:var(--indigo2);padding:2px 9px;border-radius:20px;font-weight:600}
+  .wcard .wlink{display:inline-flex;align-items:center;gap:5px;margin-top:11px;font-size:12.5px;font-weight:700;
+    text-decoration:none;color:#fff;background:var(--indigo);padding:7px 14px;border-radius:9px}
+  .wcard .wlink:active{background:#16324f}
+
+  .actbar{margin:12px 14px 0;background:var(--indigo);border-radius:12px;padding:12px 15px;
+    display:flex;align-items:center;gap:12px}
+  .actbar .txt{flex:1;color:#dbe7f2;font-size:12.5px;line-height:1.4}
+  .actbar .txt b{color:#fff;font-family:var(--serif)}
+  .actbar a{flex:0 0 auto;text-decoration:none;background:var(--verm);color:#fff;font-weight:700;
+    font-size:13px;padding:9px 14px;border-radius:9px;white-space:nowrap}
+  .actbar a:active{background:#b83f2b}
+
+  section{padding:8px 14px 4px}
+  .day{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:14px 0;overflow:hidden;box-shadow:0 1px 0 rgba(27,37,48,.03)}
+  .day-head{padding:16px 18px 14px;border-bottom:1px dashed var(--line);display:flex;align-items:baseline;gap:12px;position:relative}
+  .day-head .jp{font-family:var(--serif);font-weight:900;font-size:22px;color:var(--indigo);white-space:nowrap}
+  .day-head .info{flex:1;min-width:0}
+  .day-head .date{font-family:var(--mono);font-size:13px;color:var(--sub);letter-spacing:.03em}
+  .day-head .dow{color:var(--verm);font-weight:700}
+  .day-head .theme{font-family:var(--serif);font-weight:700;font-size:17px;margin-top:2px}
+  .route{font-size:12.5px;color:var(--sub);padding:0 18px;margin:10px 0 2px;line-height:1.5}
+
+  ul.tl{list-style:none;padding:8px 18px 16px}
+  ul.tl li{position:relative;padding:12px 0 12px 26px;border-left:2px solid var(--line);margin-left:4px}
+  ul.tl li:last-child{border-left-color:transparent}
+  ul.tl li::before{content:"";position:absolute;left:-7px;top:16px;width:12px;height:12px;border-radius:50%;
+    background:var(--dot,#b9b3a5);border:2px solid var(--card)}
+  .time{font-family:var(--mono);font-size:12px;color:var(--indigo2);font-weight:700;letter-spacing:.02em}
+  .title{font-size:15.5px;font-weight:700;margin:1px 0 2px;line-height:1.35}
+  .loc{font-size:12.5px;color:var(--sub)}
+  .loc::before{content:"◍ ";opacity:.5}
+  .note{font-size:13px;color:#41474e;margin-top:3px;line-height:1.5}
+  .tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;vertical-align:middle;margin-right:6px;letter-spacing:.04em}
+  .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:7px}
+  .maplink,.cal{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;text-decoration:none;
+    padding:4px 10px;border-radius:8px;border:1px solid}
+  .maplink{color:var(--indigo);background:#e9eff6;border-color:#d3e0ee}
+  .maplink:active{background:#dbe6f2}
+  .cal{color:#8f4a12;background:#fbedd8;border-color:#efd6ac}
+  .cal:active{background:#f5e2c4}
+
+  details.memo{margin-top:8px}
+  details.memo summary{list-style:none;cursor:pointer;font-size:11.5px;font-weight:600;color:var(--sub);
+    display:inline-flex;align-items:center;gap:5px;padding:3px 0;user-select:none}
+  details.memo summary::-webkit-details-marker{display:none}
+  details.memo summary::before{content:"✎";font-size:12px;opacity:.7}
+  details.memo.has summary::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--verm)}
+  details.memo textarea{width:100%;margin-top:6px;border:1px solid var(--line);border-radius:9px;
+    background:#fffef9;padding:9px 11px;font-family:var(--sans);font-size:13px;color:var(--ink);
+    resize:vertical;min-height:52px;line-height:1.5}
+  details.memo textarea:focus{outline:none;border-color:var(--indigo2)}
+  details.memo textarea::placeholder{color:#b0aa9c}
+
+  .block-h{display:flex;align-items:center;gap:10px;margin:30px 4px 4px}
+  .block-h .kj{font-family:var(--serif);font-weight:900;font-size:26px;color:var(--verm)}
+  .block-h .en{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--sub);text-transform:uppercase}
+  .block-h h2{font-family:var(--serif);font-size:20px;font-weight:700}
+
+  .food-grid{display:grid;gap:10px}
+  .food-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  .food-card .fn{font-weight:700;font-size:15px}
+  .food-card .fp{font-size:12.5px;color:var(--sub);margin-top:1px}
+  .food-card .fh{font-family:var(--mono);font-size:11.5px;color:var(--indigo2);margin-top:5px}
+
+  .hotel{background:var(--indigo);color:#eef4fa;border-radius:16px;padding:18px 18px 16px;margin-top:4px}
+  .hotel .hn{font-family:var(--serif);font-weight:700;font-size:18px}
+  .hotel .ha{font-size:12.5px;color:#bcd0e6;margin-top:6px;line-height:1.5}
+  .hotel .hb{font-size:13px;color:#dbe7f2;margin-top:8px}
+  .hotel .prices{display:flex;gap:10px;margin-top:12px}
+  .hotel .price{flex:1;background:rgba(255,255,255,.09);border-radius:10px;padding:9px 11px}
+  .hotel .price .lab{font-size:11px;color:#a9c2dd;letter-spacing:.05em}
+  .hotel .price .num{font-family:var(--mono);font-weight:700;font-size:15px;margin-top:2px}
+  .hotel .price .usd{font-size:11px;color:#a9c2dd}
+
+  .check{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 4px}
+  .check .row{display:flex;align-items:flex-start;gap:11px;padding:9px 14px;cursor:pointer;border-bottom:1px solid #ece8dd;user-select:none}
+  .check .row:last-child{border-bottom:none}
+  .box{flex:0 0 20px;width:20px;height:20px;border:2px solid #c3bdae;border-radius:6px;margin-top:1px;
+    display:flex;align-items:center;justify-content:center;transition:.15s}
+  .box svg{width:12px;height:12px;stroke:#fff;stroke-width:3.2;fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:0;transition:.15s}
+  .check .row.done .box{background:var(--indigo);border-color:var(--indigo)}
+  .check .row.done .box svg{opacity:1}
+  .check .row.done .ci{color:#a49e90;text-decoration:line-through}
+  .ci{font-size:14.5px;line-height:1.4}
+  .ci small{display:block;font-size:12px;color:var(--sub);text-decoration:none}
+  .ci a{color:var(--indigo)}
+  .progress{font-family:var(--mono);font-size:12px;color:var(--sub);text-align:right;padding:8px 14px 2px}
+
+  .t-traffic{background:#e3ecf5;color:#1f4a75} .d-traffic{--dot:#3b6ca3}
+  .t-food{background:#fbe4dc;color:#b8442c}   .d-food{--dot:#cf4a33}
+  .t-sight{background:#e0efe4;color:#2f7048}  .d-sight{--dot:#3f8a5c}
+  .t-shop{background:#efe1f1;color:#7d3f86}   .d-shop{--dot:#9a5aa3}
+  .t-stay{background:#e7e5df;color:#55524a}   .d-stay{--dot:#8a857a}
+  .t-ball{background:#f8ecc9;color:#8f6d12}   .d-ball{--dot:#c99a2e}
+
+  footer{text-align:center;color:var(--sub);font-size:12px;padding:34px 20px 40px;line-height:1.7}
+  footer .ln{width:32px;height:2px;background:var(--verm);margin:0 auto 14px}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">2026.07.09 – 07.13 ・ 5天4夜</div>
+    <h1>大阪<span class="x">×</span>京都</h1>
+    <div class="trip-meta">關西自由行 ・ 住宿：ESLEAD Namba South 1（近新今宮）</div>
+  </header>
+
+  <nav id="nav">
+    <a href="#d1" data-day="d1">Day 1<b>7/9</b></a>
+    <a href="#d2" data-day="d2">Day 2<b>7/10</b></a>
+    <a href="#d3" data-day="d3">Day 3<b>7/11</b></a>
+    <a href="#d4" data-day="d4">Day 4<b>7/12</b></a>
+    <a href="#d5" data-day="d5">Day 5<b>7/13</b></a>
+    <a href="#food" data-day="food">美食</a>
+    <a href="#pack" data-day="pack">打包</a>
+  </nav>
+
+  <div class="remind">
+    <span class="star">★</span><div>出發前記得買：<b>eSIM</b>、<b>抗曬用品</b></div>
+  </div>
+
+  <div class="wcard">
+    <div class="wt"><b>七月關西 ・ 天氣</b><span>氣候常態 · 非即時預報</span></div>
+    <p>高溫多濕，出發那週可能仍在梅雨尾聲，午後偶有雷陣雨；白天約 30–33°C、夜間 24–26°C，晴天紫外線強。室內冷氣普遍偏強。<b>出發前再查一次即時預報。</b></p>
+    <div class="tips"><span>折疊傘</span><span>抗曬 / 帽</span><span>勤補水</span><span>透氣衣物</span><span>薄外套</span></div>
+    <a class="wlink" href="https://www.google.com/search?q=%E5%A4%A7%E9%98%AA%20%E5%A4%A9%E6%B0%A3%E9%A0%90%E5%A0%B1" target="_blank" rel="noopener">🔎 查大阪即時預報 ↗</a>
+  </div>
+
+  <div class="actbar">
+    <div class="txt"><b>整趟行程一次匯入</b><br>下載 .ics，用 Google／Apple 行事曆開啟即可批次加入（時區已設 JST）。</div>
+    <a id="icsBtn" download="大阪京都行程.ics">下載 .ics</a>
+  </div>
+
+  <section id="days"></section>
+
+  <section>
+    <div class="block-h"><span class="kj">食</span><div><div class="en">Eat List</div><h2>美食口袋名單</h2></div></div>
+    <div class="food-grid" id="food"></div>
+  </section>
+
+  <section>
+    <div class="block-h"><span class="kj">宿</span><div><div class="en">Stay</div><h2>住宿資訊</h2></div></div>
+    <div class="hotel">
+      <div class="hn">ESLEAD HOTEL 難波南 1 ・ 市景家庭四人房</div>
+      <div class="ha">Chome-11-25 Ebisunishi, Naniwa Ward, Osaka 556-0003（近新今宮站）</div>
+      <div class="hb">房型：2 張單人床 ＋ 1 張雙人床</div>
+      <div class="prices">
+        <div class="price"><div class="lab">價格（朱）</div><div class="num">NT$12,169.92</div><div class="usd">USD 382.69</div></div>
+        <div class="price"><div class="lab">價格（羅）</div><div class="num">NT$7,840.23</div><div class="usd">USD 247.74</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pack">
+    <div class="block-h"><span class="kj">備</span><div><div class="en">Packing</div><h2>行前打包清單</h2></div></div>
+    <div class="progress" id="prog"></div>
+    <div class="check" id="check"></div>
+  </section>
+
+  <footer>
+    <div class="ln"></div>
+    行き先は大阪・京都。<br>いってきます 🏐<br>
+    <span style="opacity:.6">打勾與備註都會記在此裝置的瀏覽器</span>
+  </footer>
+</div>
+
+<script>
+const days=[
+{id:'d1',jp:'一日目',date:'2026 / 7 / 9',dow:'(四) THU',theme:'抵達・難波道頓堀',route:'',items:[
+ {t:'06:40–10:25',c:'traffic',ti:'桃園機場 → 關西機場',lo:'第一航廈',n:'暑假需要提前 3 小時嗎（？'},
+ {t:'10:25–11:30',c:'traffic',ti:'大阪出關',lo:'第一航廈'},
+ {t:'11:30–12:25',c:'traffic',ti:'南海電鐵 → 難波',n:'IC 卡可直接搭空港急行，約 45 分 ¥970／Rapi:t ¥1,490（有位子）'},
+ {t:'12:25–',c:'traffic',ti:'難波 → 動物園前站',lo:'御堂筋線'},
+ {c:'stay',ti:'飯店寄放行李',lo:'ESLEAD Namba South 1'},
+ {c:'sight',ti:'道頓堀一帶',n:'新世界 → 通天閣 → 黑門市場 → 道頓堀'},
+ {c:'shop',ti:'Alpen / Sports Depo',n:'買鞋',u:'https://maps.app.goo.gl/HKbznGpruijwMxaUA'},
+ {c:'shop',ti:'心斎橋 PARCO',n:'抽扭蛋',u:'https://maps.app.goo.gl/7MpdjxTiVSW4eShaA'},
+ {c:'food',ti:'dorajyu',n:'大阪燒 ・ 11:30–23:00'},
+ {c:'food',ti:'ゆめまる',lo:'Nipponbashi 1-1-14',n:'和牛壽喜燒 ・ 12:00–21:00'},
+ {c:'food',ti:'福太郎 大阪燒',n:'大阪燒 ・ 17:30–22:45'},
+ {c:'food',ti:'Rikuro-Ojisan 難波本店',n:'起司蛋糕 ・ 9:00–20:00'},
+ {c:'food',ti:'宮田麵兒',n:'沾麵 ・ 11:30–15:30、17:30–21:00'},
+]},
+{id:'d2',jp:'二日目',date:'2026 / 7 / 10',dow:'(五) FRI',theme:'京都・清水寺・祇園',
+ route:'路線：住宿 → 難波 → 梅田 → 京都河原町 → 清水寺',items:[
+ {t:'06:00–06:20',c:'traffic',ti:'動物園前 → 梅田',lo:'御堂筋線',n:'約 15 分 ¥240，步行轉乘阪急大阪梅田站'},
+ {t:'06:30–07:30',c:'traffic',ti:'梅田 → 京都河原町',lo:'阪急電車',n:'約 45–50 分 ¥410'},
+ {c:'food',ti:'挽肉與米（京都）挽肉と米',n:'先去登記座位再逛街',u:'https://maps.app.goo.gl/pvTHB9yas9KpCwtL9'},
+ {t:'07:30–11:30',c:'sight',ti:'祇園散策',n:'河原町 → 八坂神社方向 → 清水寺'},
+ {c:'sight',ti:'八坂神社'},
+ {c:'sight',ti:'清水坂上山'},
+ {c:'sight',ti:'清水寺主區'},
+ {t:'11:30–13:00',c:'food',ti:'午餐（附近看看）'},
+ {c:'food',ti:'GOKAGO 日本茶専門店',n:'好吃網美店',u:'https://maps.app.goo.gl/wYFhSB7XmzYbjQjx9'},
+ {c:'food',ti:'茶寮哲心 Saryo Tesshin',lo:'321-2 Shinnyodocho, Nakagyo Ward, Kyoto'},
+ {c:'food',ti:'gion gozu',n:'布丁'},
+ {t:'14:00–16:00',c:'sight',ti:'錦市場',n:'在京都河原町附近',u:'https://maps.app.goo.gl/UjtuNXv1v6jAdqia7'},
+ {c:'food',ti:'inoda 咖啡'},
+ {t:'16:00–18:00',c:'sight',ti:'鴨川'},
+]},
+{id:'d3',jp:'三日目',date:'2026 / 7 / 11',dow:'(六) SAT',theme:'大阪城 ＋ VNL',route:'',items:[
+ {t:'09:30–10:30',c:'sight',ti:'大阪城'},
+ {c:'food',ti:'Japanese set meal restaurant MUKAI'},
+ {c:'traffic',ti:'梅田'},
+ {c:'shop',ti:'ガチャガチャの森 大阪梅田茶屋町',n:'超大間扭蛋，阪急大阪梅田站茶屋町步行約 4 分，11 點開',u:'https://maps.app.goo.gl/DkKCZ4f9yfS787jC7'},
+ {t:'18:20–20:00',c:'ball',ti:'VNL 大阪 🏐',n:'世界女排聯賽 ・ 現場觀賽'},
+ {t:'21:00–',c:'food',ti:'燒肉 Mitsuru 心齋橋',lo:'Yakiniku Dotombori-Mitsuru Shinsaibashi'},
+]},
+{id:'d4',jp:'四日目',date:'2026 / 7 / 12',dow:'(日) SUN',theme:'神社・勝尾寺・打球',route:'',items:[
+ {t:'08:00–09:00',c:'sight',ti:'大國主神社 / 今宮戎神社',lo:'住宿 → 大國町站',n:'好像可以用走的',u:'https://maps.app.goo.gl/6ibgXVSeDXiVFgNh6'},
+ {t:'09:00–09:50',c:'traffic',ti:'動物園前 → 箕面萱野',lo:'御堂筋線',n:'往勝尾寺'},
+ {t:'09:50–10:10',c:'traffic',ti:'箕面萱野站',lo:'巴士 / Uber'},
+ {t:'10:10–13:00',c:'sight',ti:'勝尾寺'},
+ {t:'13:00–16:00',c:'food',ti:'箕面 Q\u2019s Mall 午餐 ＋ 逛街',lo:'箕面萱野站對面',n:'UQ、無印 等等'},
+ {t:'16:00–18:00',c:'traffic',ti:'箕面萱野 → 梅田 → 大阪梅田 → 庄內',lo:'御堂筋線 → 阪急寶塚線'},
+ {c:'traffic',ti:'庄內 → 庄內南小學校',n:'走路 15 分鐘'},
+ {t:'18:00–21:00',c:'ball',ti:'打排球 🏐',lo:'Shonaiminami Elementary School',n:'聯繫方式 ↓',u:'https://www.net-menber.com/myp/msg/h',ul:'聯絡連結'},
+ {t:'21:00–',c:'traffic',ti:'返程：庄內 → 大阪梅田 → 梅田 → 動物園前',n:'阪急寶塚線到庄內站'},
+]},
+{id:'d5',jp:'五日目',date:'2026 / 7 / 13',dow:'(一) MON',theme:'Check out・返程',route:'',items:[
+ {t:'10:00',c:'stay',ti:'Check out'},
+ {t:'11:00–12:30',c:'food',ti:'shabuchuo しゃぶ忠央',n:'壽喜燒 ・ 11:30–13:30（網友推午間套餐）'},
+ {t:'12:30–14:30',c:'shop',ti:'最後採買'},
+ {t:'14:30–15:30',c:'traffic',ti:'前往機場',lo:'南海電鐵'},
+ {t:'19:50–21:45',c:'traffic',ti:'關西機場 → 桃園機場'},
+]},
+];
+const CN={traffic:'交通',food:'餐飲',sight:'觀光',shop:'購物',stay:'住宿',ball:'排球'};
+
+const ymdOf=d=>{const m=d.date.match(/(\d{4})\s*\/\s*(\d{1,2})\s*\/\s*(\d{1,2})/);return m[1]+m[2].padStart(2,'0')+m[3].padStart(2,'0');};
+function parseTimes(ymd,t){
+  if(!t)return null;
+  const parts=t.replace(/[–—]/g,'-').split('-').map(s=>s.trim()).filter(Boolean);
+  const toDT=hm=>{const m=hm.match(/(\d{1,2}):(\d{2})/);return m?ymd+'T'+m[1].padStart(2,'0')+m[2]+'00':null;};
+  const s=toDT(parts[0]); if(!s)return null;
+  let e=parts[1]?toDT(parts[1]):null;
+  if(!e){const mins=+s.slice(9,11)*60+ +s.slice(11,13)+90;
+    if(mins>=1439){e=ymd+'T235900';}
+    else e=ymd+'T'+String(Math.floor(mins/60)).padStart(2,'0')+String(mins%60).padStart(2,'0')+'00';}
+  return {s,e};
+}
+function gcalUrl(ymd,i){
+  const dt=parseTimes(ymd,i.t); if(!dt)return '';
+  let det=i.n||''; if(i.u)det+=(det?'\n':'')+i.u;
+  return 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+   +'&text='+encodeURIComponent(i.ti)+'&dates='+dt.s+'/'+dt.e+'&ctz=Asia/Tokyo'
+   +'&details='+encodeURIComponent(det)+'&location='+encodeURIComponent(i.lo||i.ti);
+}
+const esc=s=>(s||'').replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\n/g,'\\n');
+function buildICS(){
+  const L=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//osaka-kyoto//trip//ZH','CALSCALE:GREGORIAN','METHOD:PUBLISH',
+    'BEGIN:VTIMEZONE','TZID:Asia/Tokyo','BEGIN:STANDARD','DTSTART:19700101T000000',
+    'TZOFFSETFROM:+0900','TZOFFSETTO:+0900','TZNAME:JST','END:STANDARD','END:VTIMEZONE'];
+  let uid=0;
+  days.forEach(d=>{const ymd=ymdOf(d);d.items.forEach(i=>{
+    const dt=parseTimes(ymd,i.t); if(!dt)return;
+    let det=i.n||''; if(i.u)det+=(det?'\n':'')+i.u;
+    L.push('BEGIN:VEVENT','UID:'+(++uid)+'-osaka-kyoto','DTSTAMP:20260701T000000Z',
+      'DTSTART;TZID=Asia/Tokyo:'+dt.s,'DTEND;TZID=Asia/Tokyo:'+dt.e,
+      'SUMMARY:'+esc(i.ti),'LOCATION:'+esc(i.lo||''),'DESCRIPTION:'+esc(det),'END:VEVENT');
+  });});
+  L.push('END:VCALENDAR');
+  return L.join('\r\n');
+}
+
+const MEMO=(()=>{try{return JSON.parse(localStorage.getItem('osakaMemo')||'{}')}catch(e){return{}}})();
+const saveMemo=()=>{try{localStorage.setItem('osakaMemo',JSON.stringify(MEMO))}catch(e){}};
+
+const mapBtn=(u,l)=>u?`<a class="maplink" href="${u}" target="_blank" rel="noopener">${l||'Google 地圖'} ↗</a>`:'';
+const daysEl=document.getElementById('days');
+daysEl.innerHTML=days.map(d=>{const ymd=ymdOf(d);return `
+ <div class="day" id="${d.id}">
+   <div class="day-head">
+     <div class="jp">${d.jp}</div>
+     <div class="info"><div class="date">${d.date} <span class="dow">${d.dow}</span></div>
+       <div class="theme">${d.theme}</div></div>
+   </div>
+   ${d.route?`<div class="route">${d.route}</div>`:''}
+   <ul class="tl">
+     ${d.items.map((i,idx)=>{const g=gcalUrl(ymd,i);const key=d.id+'-'+idx;return `
+       <li class="d-${i.c||'stay'}">
+         ${i.t?`<div class="time">${i.t}</div>`:''}
+         <div class="title"><span class="tag t-${i.c||'stay'}">${CN[i.c]||'行程'}</span>${i.ti}</div>
+         ${i.lo?`<div class="loc">${i.lo}</div>`:''}
+         ${i.n?`<div class="note">${i.n}</div>`:''}
+         <div class="links">${mapBtn(i.u,i.ul)}${g?`<a class="cal" href="${g}" target="_blank" rel="noopener">＋ 行事曆</a>`:''}</div>
+         <details class="memo"><summary>天氣 / 交通備註</summary><textarea data-key="${key}" placeholder="例：帶傘、末班車 23:xx、集合點、票券…"></textarea></details>
+       </li>`;}).join('')}
+   </ul>
+ </div>`;}).join('');
+
+document.querySelectorAll('.memo textarea').forEach(ta=>{
+  const k=ta.dataset.key;
+  if(MEMO[k]){ta.value=MEMO[k];const d=ta.closest('.memo');d.classList.add('has');d.open=true;}
+  ta.addEventListener('input',()=>{
+    const d=ta.closest('.memo');
+    if(ta.value.trim()){MEMO[k]=ta.value;d.classList.add('has');}
+    else{delete MEMO[k];d.classList.remove('has');}
+    saveMemo();
+  });
+});
+
+try{
+  const blob=new Blob([buildICS()],{type:'text/calendar;charset=utf-8'});
+  document.getElementById('icsBtn').href=URL.createObjectURL(blob);
+}catch(e){document.getElementById('icsBtn').textContent='.ics 不支援';}
+
+const food=[
+ {n:'北極冰棒',p:'北極冰棒',h:'11:00–20:00'},
+ {n:'十元燒',p:'10円パン',h:'11:00–21:00'},
+ {n:'中央廣場（超市）',p:'LIFE 中央廣場 難波店',h:'當地超市可買即食，走路約 17 分，可考慮搭車'},
+ {n:'力丸燒肉',p:'燒肉力丸 難波道頓堀店',h:'11:30–01:00（週一 16:00–01:00）'},
+ {n:'跳舞章魚燒',p:'踊りだこ 道頓堀店',h:'11:00–19:00'},
+ {n:'龜王拉麵',p:'龜王拉麵 道頓堀店',h:'11:00–02:00'},
+ {n:'大起水產 迴轉壽司',p:'臨空 Seacle 店'},
+ {n:'伊都 King',p:'博多運河城店'},
+];
+document.getElementById('food').innerHTML=food.map(f=>`
+ <div class="food-card"><div class="fn">${f.n}</div><div class="fp">${f.p}</div>
+   ${f.h?`<div class="fh">${f.h}</div>`:''}</div>`).join('');
+
+const pack=[
+ ['護照'],['機票（列印）'],['線上海關申報'],
+ ['日幣','買西瓜卡 → <a href="https://kikinote.net/162325" target="_blank" rel="noopener">教學連結</a>'],
+ ['信用卡'],['保險資料'],['訂房資訊（列印）'],['eSIM ＋ 實體 SIM 卡'],
+ ['充電線'],['行動電源'],['上衣（4–5 件）'],['下衣（2–3 件）'],['外套'],['襪子'],['睡衣'],
+ ['清潔液'],['毛巾'],['面紙 ＆ 濕紙巾'],['壓縮袋'],['日常藥品（感冒、止痛、腸胃）'],
+ ['眼罩'],['購物袋'],['紙筆'],['小資料夾'],['折疊傘'],['洗面乳'],['乳液'],['排球鞋'],
+];
+const tick=`<svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg>`;
+const cEl=document.getElementById('check'),pEl=document.getElementById('prog');
+const PACK=(()=>{try{return JSON.parse(localStorage.getItem('osakaPack')||'[]')}catch(e){return[]}})();
+const savePack=()=>{try{localStorage.setItem('osakaPack',
+  JSON.stringify([...cEl.querySelectorAll('.row.done')].map(r=>+r.dataset.i)))}catch(e){}};
+cEl.innerHTML=pack.map((p,i)=>`<div class="row" data-i="${i}"><div class="box">${tick}</div>
+   <div class="ci">${p[0]}${p[1]?`<small>${p[1]}</small>`:''}</div></div>`).join('');
+PACK.forEach(i=>{const r=cEl.querySelector('.row[data-i="'+i+'"]');if(r)r.classList.add('done');});
+const upd=()=>pEl.textContent=`已備妥 ${cEl.querySelectorAll('.row.done').length} / ${pack.length}`;
+cEl.querySelectorAll('.row').forEach(r=>r.addEventListener('click',e=>{
+  if(e.target.closest('a'))return; r.classList.toggle('done');savePack();upd();}));
+upd();
+
+const links=[...document.querySelectorAll('nav a')];
+const targets=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){
+  const id=en.target.id;links.forEach(a=>a.classList.toggle('on',a.dataset.day===id));}}),
+  {rootMargin:'-45% 0px -50% 0px'});
+targets.forEach(t=>io.observe(t));
+</script>
+</body>
+</html>
